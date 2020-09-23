@@ -1,11 +1,17 @@
+#Rohan Rao
+#This program contains ForLoops Program, Prime Numbers, and the Fibonacci sequence
+
+
+
+#Forloops
 for line in range(5):
     print()
     for number in range(5-line,0,-1):
         print(number, end =' ')
 
-
-start = 25
-end = 50
+#Prime Numbers Program
+start = 25  #First Value of finding prime number
+end = 50    #Last Value of finding prime number
 
 for num in range(start, end + 1):
    if num > 1:
@@ -15,22 +21,18 @@ for num in range(start, end + 1):
        else:
            print(num)
 
+#Fibonacci Sequence Program
+def fib(number_of_terms):
+    a=0
 
-def fib_iter(n):
-    a=1
-    b=1
-    if n==1:
-        print('0')
-    elif n==2:
-        print('0','1')
-    else:
-        print('0',a,b,end=' ')
-        for i in range(n-3):
-            total = a + b
-            b=a
-            a= total
-            print(total,end=' ')
-        print()
-        return b
+    x= 0
+    y= 1
+    z= 0
 
-fib_iter(10)
+    while a <= number_of_terms:
+        print(x)
+        z= x + y
+        x = y
+        y = z
+        a= a + 1
+fib(10)

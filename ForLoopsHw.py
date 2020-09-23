@@ -19,15 +19,15 @@ print("9 9 9 9 9 9 9 9 9\n")
 n = range("1,10")
 for i in range(1,n+1):
     for j in range(1, i+1):
-        print i
+        print(i)
 
 
 numbers = ["1 2 3 4 5 6 7 8 9"]
 numbers2 = ["1","2","3","4","5","6","7","8","9"]
 
 for x in numbers:
-    print x
+    print(x)
     continue
 for x in numbers2:
-    print x
+    print(x)
     continue
