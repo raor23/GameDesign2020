@@ -1,9 +1,10 @@
 #Rohan Rao
 #1 Write a Python script to sort (ascending and descending) a dictionary by value.
-dic1 = {0:10,1:20}
-print(dic1)
-descendingdic1= {1:20,0:10}
-print(descendingdic1)
+dic1 = {0:10,2:30,1:20,3:40}
+sorted_dic1= sorted(dic1.items())
+print(sorted_dic1)
+reversesorted_dic1= sorted(dic1.items(), reverse=True)
+print(reversesorted_dic1)
 #2 Write a Python script to add a key to a dictionary.
 key = {3:4}
 dic1.update(key)
