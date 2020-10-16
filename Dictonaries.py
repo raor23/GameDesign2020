@@ -48,11 +48,8 @@ print(dic9)
 #10 Write a Python program to sum all the items in a dictionary.
 dict = {'a': 100, 'b':200, 'c':300}
 def returnSum(myDict):
-
     sum = 0
     for i in myDict:
         sum = sum + myDict[i]
-
     return sum
-
 print("The sum is", returnSum(dict))
