@@ -15,24 +15,13 @@ words = ['banana','strawberry','mango','blueberry',
 
 #Chooses randomn word
 word = random.choice(words)
-print("Guess the characters")
-hangman = "  0"
-hangman2 = "\n/"
-hangman3 = "|"
-hangman4 = "\ "
-
-hangman5 = "\n /"
-
-hangman6 = "\ "
-
-print(hangman, hangman2, hangman3, hangman4, hangman5, hangman6)
 
 print("The Theme is Fruits")
 guesses = ''
-turns = 6
+turns = 7
 while turns > 0:
     failed = 0
-
+    hangman(turns)
     for char in word:
 
         if char in guesses:
