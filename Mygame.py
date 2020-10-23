@@ -65,12 +65,6 @@ def play():
 	# enter player1 and player2 name
 	p1name = input("player 1, Please enter your name :")
 	p2name = input("Player 2 , Please enter your name: ")
-	print("""Instructions: You have to unscramble the word and type
-	      in the word that you think it is. If you get it right,
-	      you get a point. If you get it wrong, the otehr player
-	      gets to take a guess. And if both of you get it wrong,
-	      it tells you the word and moves on to the next word.
-	      You can choose to quit or continue after every round.""")
 	print("The Theme is Fruits")
 
 	# variable for counting score.
@@ -88,7 +82,7 @@ def play():
 
 		# jumble() fucntion calling
 		qn = jumble(picked_word)
-		print("The Scrambled word is :", qn)
+		print("jumbled word is :", qn)
 
 		# checking turn is odd or even
 		if turn % 2 == 0:
