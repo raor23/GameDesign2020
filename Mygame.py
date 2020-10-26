@@ -41,7 +41,6 @@ def thank(p1n, p2n, p1, p2):
 	# check_win() function calling
 	check_win(p1n, p2n, p1, p2)
 
-	print('Thanks for playing!')
 	ask = input("Would you like to play again?")
 	if ask == "yes":
 		while True:
