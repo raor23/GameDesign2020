@@ -5,6 +5,17 @@
 import random
 
 
+menu = int(input("""****************************************
+*                                      *
+*    Welcome to Unscramble the word!   *
+*           Press 1 to play            *
+*       Press 2 for Instructions       *
+*            Press 3 to quit           *
+*                                      *
+****************************************\n"""))
+
+
+
 # function for choosing random word.
 def choose():
 	# list of word
@@ -47,6 +58,7 @@ def thank(p1n, p2n, p1, p2):
 			play()
 	elif ask == "no":
 		print("Thanks for Playing!")
+		quit()
 
 
 # Function for declaring the winner
@@ -64,12 +76,6 @@ def play():
 	# enter player1 and player2 name
 	p1name = input("player 1, Please enter your name :")
 	p2name = input("Player 2 , Please enter your name: ")
-	print("""Instructions: You have to unscramble the word and type
-	      in the word that you think it is. If you get it right,
-	      you get a point. If you get it wrong, the otehr player
-	      gets to take a guess. And if both of you get it wrong,
-	      it tells you the word and moves on to the next word.
-	      You can choose to quit or continue after every round.""")
 	print("The Theme is Fruits")
 
 	# variable for counting score.
@@ -160,6 +166,7 @@ def play():
 					if c == 0:
 						# thank() function calling
 						thank(p1name, p2name, pp1, pp2)
+						quit()
 						break
 
 			c = int(input("press 1 to continue and 0 to quit :"))
@@ -167,7 +174,18 @@ def play():
 				# thank() function calling
 				thank(p1name, p2name, pp1, pp2)
 				break
-
+if menu == 1:
+	while True:
+		play()
+if menu == 2:
+        print("""Instructions: You have to unscramble the word and type
+	      in the word that you think it is. If you get it right,
+	      you get a point. If you get it wrong, the otehr player
+	      gets to take a guess. And if both of you get it wrong,
+	      it tells you the word and moves on to the next word.
+	      You can choose to quit or continue after every round.""")
+if menu == 3:
+        quit()
 
 # Driver code
 if __name__ == '__main__':
