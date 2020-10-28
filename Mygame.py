@@ -175,6 +175,7 @@ def play():
 				break
 if menu == 1:
 	while True:
+<<<<<<< HEAD
 		pp1 = 0
 		pp2 = 0
 
@@ -270,6 +271,9 @@ if menu == 1:
 					# thank() function calling
 					thank(p1name, p2name, pp1, pp2)
 					break
+=======
+		play()
+>>>>>>> cabb683d11d8d7ad3afe5c4a8516c8e05e148d03
 if menu == 2:
         print("""Instructions: You have to unscramble the word and type
 	      in the word that you think it is. If you get it right,
