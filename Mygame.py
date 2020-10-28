@@ -179,10 +179,10 @@ if menu == 1:
 if menu == 2:
         print("""Instructions: You have to unscramble the word and type
 	      in the word that you think it is. If you get it right,
-	      you get a point. If you get it wrong, the otehr player
-	      gets to take a guess. And if both of you get it wrong,
-	      it tells you the word and moves on to the next word.
-	      You can choose to quit or continue after every round.""")
+	      you get a point. If you get it wrong, the other player
+	      gets to take a guess. And if both of the players guess wrong,
+	      the game tells you the word and moves on to the next word.
+	      You can choose to quit or continue after every round (each player goes).""")
 if menu == 3:
         quit()
 
