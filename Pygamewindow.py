@@ -9,17 +9,14 @@ import pygame
 import time
 pygame.init()
 
-size = input("Would you like the width/height to be 1000 x 1000? ")
-if size == "no":
-    size2 = input("Ok, would 500 x 500 be okay? ")
-    if size2 == "yes":
-        screen = pygame.display.set_mode((500,500))
-    if size2 == "no":
-        print("Sorry, we don't have other sizes...")
-        time.sleep(3)
-        quit()
-if size == "yes":
-    screen = pygame.display.set_mode((1000,1000))
+height = input("What would you like the height of the window to be? (10-1000): ")
+width = input("What would you like the width of the window to be? (10-1000): ")
+
+height = int(height)
+width = int(width)
+
+screen = pygame.display.set_mode((height,width))
+
 pygame.display.flip()
 pygame.display.set_caption("Pygame Window")
 color = input("Enter the color of the window: ")
