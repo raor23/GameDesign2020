@@ -1,9 +1,11 @@
 import pygame
+from pygame_functions import *
+
 pygame.init()
 WIDTH = 1000
 HEIGHT = 768
 screen = pygame.display.set_mode((WIDTH,HEIGHT))
-pygame.display.set_caption("First Game")
+pygame.display.set_caption("Character Game")
 
 walkRight = [pygame.image.load('Stripe\R1E.png'), pygame.image.load('Stripe\R2E.png'), pygame.image.load('Stripe\R1E.png'), pygame.image.load('Stripe\R2E.png'), pygame.image.load('Stripe\R1E.png'), pygame.image.load('Stripe\R2E.png'), pygame.image.load('Stripe\R1E.png'), pygame.image.load('Stripe\R2E.png'), pygame.image.load('Stripe\R1E.png')]
 walkLeft = [pygame.image.load('Stripe\L11E.png'), pygame.image.load('Stripe\L22E.png'), pygame.image.load('Stripe\L11E.png'), pygame.image.load('Stripe\L22E.png'), pygame.image.load('Stripe\L11E.png'), pygame.image.load('Stripe\L22E.png'), pygame.image.load('Stripe\L11E.png'), pygame.image.load('Stripe\L22E.png'), pygame.image.load('Stripe\L11E.png')]
@@ -60,11 +62,13 @@ while run:
         x -= speed
         left = True
         right = False
+        
 
     elif keys[pygame.K_RIGHT] and x < WIDTH - speed - width:
         x += speed
         left = False
         right = True
+   
 
     else:
         left = False
