@@ -1,9 +1,11 @@
+# Rohan Rao
+# Major Character Game
+
 import pygame
-from pygame_functions import *
 
 pygame.init()
-WIDTH = 1000
-HEIGHT = 768
+WIDTH = 1500
+HEIGHT = 1125
 screen = pygame.display.set_mode((WIDTH,HEIGHT))
 pygame.display.set_caption("Character Game")
 
@@ -13,8 +15,8 @@ walkLeft = [pygame.image.load('Stripe\L11E.png'), pygame.image.load('Stripe\L22E
 bg = pygame.image.load('Background.png')
 character = pygame.image.load('Stripe\R11E.png')
 
-x = 50
-y = 400
+x = 750
+y = 567
 width = 40
 height = 60
 speed = 5
@@ -62,13 +64,13 @@ while run:
         x -= speed
         left = True
         right = False
-        
+
 
     elif keys[pygame.K_RIGHT] and x < WIDTH - speed - width:
         x += speed
         left = False
         right = True
-   
+
 
     else:
         left = False
@@ -76,7 +78,7 @@ while run:
         walkCount = 0
 
     if not(Jump):
-        
+
         if keys[pygame.K_SPACE]:
             Jump = True
             left = False
@@ -93,4 +95,3 @@ while run:
     redrawGameWindow()
 
 pygame.quit()
- 
