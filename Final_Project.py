@@ -2,15 +2,16 @@
 # Help from Dad
 # This is my final project for Game Design
 # This game is popular and is known as "Flappy Bird"
-# This project meets all the criteria for the
-# assignment except for a leaderboard because
-# flappy bird usually doesn't have a leaderboard.
+# It has 3 difficulties (Easy, Medium, and Hard)
+# which changes the scrolling speed to make it harder
+# I don't have a leaderboard because
+# Flappy Bird doesn't usually have a leaderboard
 # This code ALMOST works fully but the game is still playable
 
+# import modules
 import pygame
 from pygame.locals import *
 import random
-import time
 
 #initialize pygame
 pygame.init()
@@ -54,6 +55,7 @@ run = False
 
 
 #drawing main menu buttons
+# setting dimensions ( x   y   w   h)
 button1 = pygame.Rect(232,200,400,50)
 button2 = pygame.Rect(307,275,250,50)
 button3 = pygame.Rect(307,350,250,50)
@@ -65,7 +67,7 @@ text2 = BUTTON2FONT.render("EASY [2]", 1, (0,0,0))
 text3 = BUTTON3FONT.render("MEDIUM [3]", 1, (0,0,0))
 text4 = BUTTON4FONT.render("HARD [4]", 1, (0,0,0))
 
-#drawing text for instructions
+#drawing text for instructions        Text            color
 text5 = INSTRUCTIONSFONT.render("INSTRUCTIONS:", 1, (0,0,0))
 text6 = INSTRUCTIONSFONT.render("THE OBJECTIVE OF FLAPPY BIRD", 1, (0,0,0))
 text7 = INSTRUCTIONSFONT.render("IS TO KEEP YOUR BIRD IN BETWEEN", 1, (0,0,0))
@@ -80,7 +82,7 @@ text15 = INSTRUCTIONSFONT.render("HOW FAST THE BIRD MOVES.", 1, (0,0,0))
 text16 = INSTRUCTIONSFONT.render("Click 1 to go to menu", 1, (0,0,0))
 
 
-#load images for game
+#loading images for game
 bg = pygame.image.load('bg.png')
 ground_img = pygame.image.load('ground.png')
 button_img = pygame.image.load('restart.png')
@@ -93,6 +95,8 @@ MenuTitle =  pygame.image.load('FlappyBirdMenuTitle.png')
 #Function for instructions
 def instructions():
         screen.fill(white)
+        #screen_width/2 - text{num}.get_width()/2 is for centering
+        #            Text                  x                       y
         screen.blit(text5, (screen_width/2 - text5.get_width()/2, 50))
         screen.blit(text6, (screen_width/2 - text6.get_width()/2, 100))
         screen.blit(text7, (screen_width/2 - text7.get_width()/2, 150))
@@ -107,10 +111,11 @@ def instructions():
         screen.blit(text16, (screen_width/2 - text16.get_width()/2, 750))
 
         keys = pygame.key.get_pressed()
-
+        # If key 1 is pressed, user returns to menu
+        # (Not working)
         if keys[pygame.K_1]:
                 menu = True
-                
+
         pygame.display.update()
 
 #Function for drawing text on the screen
@@ -164,7 +169,7 @@ class Bird(pygame.sprite.Sprite):
 			#handle the animation
 			flap_cooldown = 5
 			self.counter += 1
-			
+
 			if self.counter > flap_cooldown:
 				self.counter = 0
 				self.index += 1
@@ -213,6 +218,7 @@ class Button():
 		action = False
 
 		#get mouse position
+		pygame.init()
 		pos = pygame.mouse.get_pos()
 
 		#check mouseover and clicked conditions
@@ -226,7 +232,7 @@ class Button():
 		return action
 
 
-        
+
 pipe_group = pygame.sprite.Group()
 bird_group = pygame.sprite.Group()
 
@@ -262,34 +268,36 @@ while menu:
         screen.blit(text3, (screen_width/2 - text3.get_width()/2, 360))
         screen.blit(text4, (screen_width/2 - text4.get_width()/2, 435))
 
-        
-        #checking for if a key pressed 
+
+        #checking for if a key pressed
         for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
-                        if event.key == pygame.K_1:
+                        if event.key == pygame.K_1: # button to instructions
                                 menu = False
                                 instructions()
-                        if event.key == pygame.K_2:
-                                scroll_speed = 4
+                        if event.key == pygame.K_2: # button to easy difficulty
+                                scroll_speed = 4 # Changing scroll speed as difficulty goes up
                                 menu = False
                                 run = True
-                        if event.key == pygame.K_3:
+                        if event.key == pygame.K_3: # button to medium difficulty
                                 scroll_speed = 10
                                 menu = False
                                 run = True
-                        if event.key == pygame.K_4:
-                                scroll_speed = 50
+                        if event.key == pygame.K_4: # button to hard difficulty
+                                scroll_speed = 20
                                 menu = False
                                 run = True
-                                       
+
+        # updating display to actually display it on the pygame window
         pygame.display.update()
-        
-# Game Loop
+
+# Main Game Loop
 while run:
         #draw background
         screen.blit(bg, (0,0))
 
         clock.tick(fps)
+        #draw pipes and bird
         pipe_group.draw(screen)
         bird_group.draw(screen)
         bird_group.update()
@@ -298,6 +306,7 @@ while run:
         screen.blit(ground_img, (ground_scroll, 768))
 
 	#check the score
+    #check if the bird actually passes through the pipe
         if len(pipe_group) > 0:
                 if bird_group.sprites()[0].rect.left > pipe_group.sprites()[0].rect.left\
                    and bird_group.sprites()[0].rect.right < pipe_group.sprites()[0].rect.right\
@@ -310,7 +319,8 @@ while run:
         draw_text(str(score), font, white, int(screen_width / 2), 20)
 
 
-	#look for collision
+	#look for collision to pipe
+    #if bird collides, it is game over
         if pygame.sprite.groupcollide(bird_group, pipe_group, False, False) or flappy.rect.top < 0:
                 game_over = True
 	#once the bird has hit the ground it's game over and no longer flying
@@ -336,21 +346,23 @@ while run:
                 if abs(ground_scroll) > 35:
                         ground_scroll = 0
 
-        #check for game over and reset
+        #Buttons at the end of the game
         if game_over == True:
-                if button.draw():
+                if button.draw(): # Restart Button
                         game_over = False
                         score = reset_game()
                         pygame.display.update()
-                if button_2.draw():
-                        exit()
-                if button_3.draw():
+                if button_2.draw(): # Exit Button
+                        pygame.display.quit()
+                if button_3.draw(): # Return to menu Button (not working)
                         menu = True
-                        
+
         for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                         run = False
                 if event.type == pygame.MOUSEBUTTONDOWN and flying == False and game_over == False:
                         flying = True
 
-        pygame.display.update()           
+        pygame.display.update()
+
+pygame.quit()
