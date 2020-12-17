@@ -28,6 +28,7 @@
 
 # import modules
 import pygame
+import time
 from pygame.locals import *
 import random
 
@@ -135,6 +136,7 @@ def instructions():
                 menu = True
 
         pygame.display.update()
+        pygame.time.delay(10000)
 
 #Function for drawing text on the screen
 def draw_text(text, font, text_col, x, y):
