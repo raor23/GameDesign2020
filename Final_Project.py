@@ -8,6 +8,23 @@
 # Flappy Bird doesn't usually have a leaderboard
 # This code ALMOST works fully but the game is still playable
 
+# Pseudo code:
+# import pygame modules
+# initialize pygame
+# set dimenisons of pygame window (height, width, caption, etc.)
+# define fonts (for menu and instructions)
+# load images (background, pipes, etc.)
+# define color
+# draw buttons for main menu
+# define game variables (scrolling speed, score, menu and game loops, etc.)
+# define game functions (frequency for pipes, score, etc.)
+# run menu loop (background, and buttons)
+# if click difficulty, run main game loop
+# after game, 3 buttons are drawn (restart with same difficulty, quit, or back to menu)
+# screen is 846 by 936 pixels
+
+
+
 # import modules
 import pygame
 from pygame.locals import *
@@ -328,9 +345,9 @@ while run:
                 game_over = True
                 flying = False
 
-
+        #if the bird is flying and it is not game over
         if flying == True and game_over == False:
-                #generate new pipes
+                #it will generate new pipes for the player to pass through
                 time_now = pygame.time.get_ticks()
                 if time_now - last_pipe > pipe_frequency:
                         pipe_height = random.randint(-100, 100)
