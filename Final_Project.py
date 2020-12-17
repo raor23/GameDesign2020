@@ -55,7 +55,7 @@ BUTTON4FONT = pygame.font.SysFont('comicsans', 60)
 INSTRUCTIONSFONT = pygame.font.SysFont('comicsans', 60)
 
 #define colors
-white = (25, 255, 255)
+white = (255, 255, 255)
 
 #define game variables
 screen = pygame.display.set_mode((screen_width, screen_height))
