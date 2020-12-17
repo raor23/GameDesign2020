@@ -24,7 +24,6 @@
 # screen is 846 by 936 pixels
 
 
-
 # import modules
 import pygame
 from pygame.locals import *
@@ -156,9 +155,6 @@ class Bird(pygame.sprite.Sprite):
 		self.images = []
 		self.index = 0
 		self.counter = 0
-		for num in range (1, 4):
-			img = pygame.image.load(f"bird{num}.png")
-			self.images.append(img)
 		self.image = self.images[self.index]
 		self.rect = self.image.get_rect()
 		self.rect.center = [x, y]
